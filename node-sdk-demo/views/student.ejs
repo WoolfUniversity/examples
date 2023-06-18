@@ -8,10 +8,15 @@
   </head>
   <body>
     <div class="container">
+      <p data-woolf-resource="wrong">Wrong
+
+      </p>
       <p class="text-center" data-woolf-resource="lorem">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </p>
-      <p><a href="https://www.africau.edu/images/default/sample.pdf?woolf-resource=pdf" class="link-dark">PDF Publication</a></p>
+      <p><a data-woolf-resource="pdf_2" href="https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf" class="link-dark">PDF Publication</a></p>
+      <p><a data-woolf-resource="pdf_2" href="https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf?woolf-resource=pr_1" class="link-dark">PR 1</a></p>
+      <p><a data-woolf-resource="pdf_2" href="https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf?woolf-resource=pr_2" class="link-dark">PR 2</a></p>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
@@ -25,7 +30,8 @@
           Right
         </label>
       </div>
-      <button id="button" type="button" class="btn btn-primary">Primary</button>
+      <button id="button" type="button" class="btn btn-primary">Submit</button>
+      <button id="meeting" type="button" class="btn btn-secondary">Discuss test.py</button>
     </div>
     <% if (token) { %>
       <script>
@@ -51,9 +57,15 @@
           }
 
           document.getElementById('button').onclick = function() {
-            woolf.trackSubmission('quiz').then((id) => {
+            woolf.trackSubmission('quiz_1').then((id) => {
               console.log(id)
             })
+          }
+
+          document.getElementById('meeting').onclick = function() {
+            woolf.trackAttendance('discuss_test_py')
+
+            window.open('https://meet.google.com/hqb-uujg-wxd', '_blank').focus()
           }
         })
       </script>
