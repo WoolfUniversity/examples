@@ -8,22 +8,20 @@
   </head>
   <body>
     <div class="container">
-      <p data-woolf-resource="wrong">Wrong
-
-      </p>
-      <p class="text-center" data-woolf-resource="lorem">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      </p>
-      <p><a data-woolf-resource="pdf_2" href="https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf" class="link-dark">PDF Publication</a></p>
-      <p><a data-woolf-resource="pdf_2" href="https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf?woolf-resource=pr_1" class="link-dark">PR 1</a></p>
-      <p><a data-woolf-resource="pdf_2" href="https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf?woolf-resource=pr_2" class="link-dark">PR 2</a></p>
+      <h1>Hello World!</h1>
+      <div class="row justify-content-center" data-woolf-resource="general_0">
+        Lorem ipsum
+      </div>
+      <a href="https://pdfobject.com/pdf/sample.pdf?woolf-resource=publication_0" class="link-primary">Sample</a>
+      <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf?woolf-resource=pr_1" class="link-secondary">PR 1</a>
+      <a href="https://www.africau.edu/images/default/sample.pdf?woolf-resource=pr_2" class="link-secondary">PR 2</a>
+      <p class="text-start">Quiz</p>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
           Wrong
         </label>
       </div>
-      <p class="text-start">Quiz</p>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
         <label class="form-check-label" for="flexRadioDefault2">
@@ -31,7 +29,10 @@
         </label>
       </div>
       <button id="button" type="button" class="btn btn-primary">Submit</button>
-      <button id="meeting" type="button" class="btn btn-secondary">Discuss test.py</button>
+      <button id="meeting" type="button" class="btn btn-secondary">Follow to a meeting</button>
+      <div class="row justify-content-start" data-woolf-resource="colab_notebook">
+        <script src="https://gist.github.com/oleksiipysanko/ce3a916160f5ec0d40ae6a902bae43b3.js"></script>
+      </div>
     </div>
     <% if (token) { %>
       <script>
@@ -39,7 +40,7 @@
 
         document.addEventListener('woolf:created', ({ woolf }) => {
           const [{ degreeId, status }] = woolf.user.degreeStudents
-          const [{ rejection }] = woolf.user.educations
+          const [{ rejection } = {}] = woolf.user.educations
 
           if (['INVITED', 'ONBOARDING'].includes(status)) {
             woolf.widget.openApplication(degreeId)
@@ -57,15 +58,15 @@
           }
 
           document.getElementById('button').onclick = function() {
-            woolf.trackSubmission('quiz_1').then((id) => {
+            woolf.trackSubmission('quiz_0').then((id) => {
               console.log(id)
             })
           }
 
           document.getElementById('meeting').onclick = function() {
-            woolf.trackAttendance('discuss_test_py')
+            woolf.trackAttendance('meeting_0')
 
-            window.open('https://meet.google.com/hqb-uujg-wxd', '_blank').focus()
+            window.open('https://meet.google.com/uam-zeia-gqe', '_blank').focus()
           }
         })
       </script>

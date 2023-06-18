@@ -7,7 +7,7 @@ app.set('view engine', 'ejs')
 
 app.get('/student', (req, res) => {
   const token = jwt.sign({
-    id: 'pysanko_x_college_student_0',
+    id: 'x_college_2',
     collegeId: 'a4b0db94-0429-4c75-9937-0658973d9a01'
   }, '39b658b5788a044bceca0cfc36fafaa0')
 
